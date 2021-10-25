@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <title>Roulette</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1>Admin </h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-4">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Local</h3>
+
+                    <p>
+                        <strong>email</strong>: <%= user.local.email %>
+                    </p>
+                    <% let wins = 0 %>
+                    <% let losses = 0 %>
+                    <% let cashWon = 0 %>
+                    <% let cashLost = 0 %>
+
+                    <% for(var i=0; i<bets.length;i++) {%>
+                        <% bets[i].result === 'win' ? losses++ : wins++ %>
+                        <% bets[i].result === 'win' ? cashLost -= 500 : cashWon += 500 %>
+                    <%}%>
+
+                    <p>Total Casino Wins: <%= wins %></p>
+                    <p>Total Casino Losses: <%= losses %></p>
+                    <p>Total Casino Cash Wins: <%= cashWon %></p>
+                    <p>Total Casino Cash Losses: <%= cashLost %></p>
+
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+          <h3>Bets</h3>
+          <ul class="bets">
+          <% for(var i=0; i<bets.length; i++) {%>
+            <li class="message">
+                <span>Player chose: <strong><%= bets[i].colorChose %></strong></span>
+                <span>The winning color: <strong><%= bets[i].winnerColor %></strong></span>
+                <span>player: <strong><%= bets[i].result %></strong></span>
+            </li>
+          <% } %>
+          </ul>
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
