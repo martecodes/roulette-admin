@@ -15,20 +15,21 @@
                     <p><strong>Admin:</strong></p>
                     <div>
                         <a href="/login" class="btn btn-primary"><span class="fa fa-user"></span>Login</a>
+                        <a href="/signup" class="btn btn-secondary"><span class="fa fa-user"></span>Signup</a>
                     </div>
                     
                 </div>
             </div>
             
         </div>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-center">
             <div>
                 <img src="/img/roulette-wheel.png" class="w-75" id="wheel">
                 <img src="/img/marker.png" class="marker">
 
             </div>
-            <div class="w-50">
-                <div> 
+            <div class="d-flex justify-content-around">
+                <div class=""> 
                     <% if(bets[bets.length -1].result === 'win') { %>
                         <span>You won!</span>
                     <%} else { %>
@@ -37,7 +38,7 @@
                         <span><%=bets[bets.length - 1].money%></span>
                 </div>
 
-                <div class="d-flex justify-content-start">
+                <div class=" ">
                     <form action="/play" method="post">
                         <button class="btn btn-danger m-3 spin" id="red" name="name" value="red">Red</button>
                         <button class="btn btn-dark m-3 spin" id="black" name="name" value="black">Black</button>

@@ -1,9 +1,12 @@
 .marker{
     height: 50px;
     position: absolute;
-    left: 18.8%;
+    left: 34.8%;
 }
 
+body{
+    background: black;
+}
 .wheel{
     position: relative;
 }
